@@ -41,6 +41,31 @@
     <dimen name="width_360dp">360dp</dimen>
     <dimen name="width_380dp">380dp</dimen>
     <dimen name="width_400dp">400dp</dimen>
+    <dimen name="width_420dp">420dp</dimen>
+    <dimen name="width_440dp">440dp</dimen>
+    <dimen name="width_460dp">460dp</dimen>
+    <dimen name="width_480dp">480dp</dimen>
+    <dimen name="width_500dp">500dp</dimen>
+    <dimen name="width_520dp">520dp</dimen>
+    <dimen name="width_540dp">540dp</dimen>
+    <dimen name="width_560dp">560dp</dimen>
+    <dimen name="width_580dp">580dp</dimen>
+    <dimen name="width_600dp">600dp</dimen>
+    <dimen name="width_620dp">620dp</dimen>
+    <dimen name="width_640dp">640dp</dimen>
+    <dimen name="width_660dp">660dp</dimen>
+    <dimen name="width_680dp">680dp</dimen>
+    <dimen name="width_700dp">700dp</dimen>
+    <dimen name="width_720dp">720dp</dimen>
+    <dimen name="width_740dp">740dp</dimen>
+    <dimen name="width_760dp">760dp</dimen>
+    <dimen name="width_780dp">780dp</dimen>
+    <dimen name="width_800dp">800dp</dimen>
+    <dimen name="width_820dp">820dp</dimen>
+    <dimen name="width_840dp">840dp</dimen>
+    <dimen name="width_860dp">80dp</dimen>
+    <dimen name="width_880dp">880dp</dimen>
+    <dimen name="width_900dp">900dp</dimen>
 
 
     <!--    Height-->
@@ -64,6 +89,32 @@
     <dimen name="height_360dp">360dp</dimen>
     <dimen name="height_380dp">380dp</dimen>
     <dimen name="height_400dp">400dp</dimen>
+    <dimen name="height_420dp">420dp</dimen>
+    <dimen name="height_440dp">440dp</dimen>
+    <dimen name="height_460dp">460dp</dimen>
+    <dimen name="height_480dp">480dp</dimen>
+    <dimen name="height_500dp">500dp</dimen>
+    <dimen name="height_520dp">520dp</dimen>
+    <dimen name="height_540dp">540dp</dimen>
+    <dimen name="height_560dp">560dp</dimen>
+    <dimen name="height_580dp">580dp</dimen>
+    <dimen name="height_600dp">600dp</dimen>
+    <dimen name="height_620dp">620dp</dimen>
+    <dimen name="height_640dp">640dp</dimen>
+    <dimen name="height_660dp">660dp</dimen>
+    <dimen name="height_680dp">680dp</dimen>
+    <dimen name="height_700dp">700dp</dimen>
+    <dimen name="height_720dp">720dp</dimen>
+    <dimen name="height_740dp">740dp</dimen>
+    <dimen name="height_760dp">760dp</dimen>
+    <dimen name="height_780dp">780dp</dimen>
+    <dimen name="height_800dp">800dp</dimen>
+    <dimen name="height_820dp">820dp</dimen>
+    <dimen name="height_840dp">840dp</dimen>
+    <dimen name="height_860dp">860dp</dimen>
+    <dimen name="height_880dp">880dp</dimen>
+    <dimen name="height_900dp">900dp</dimen>s
+    <dimen name="height_920dp">920dp</dimen>
 
 
 </resources>

@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         app:cardCornerRadius="10dp"
-        app:cardUseCompatPadding="true">
+        app:cardUseCompatPadding="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/shirt_image"
@@ -17,12 +16,12 @@
             android:layout_height="@dimen/height_160dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
             app:civ_border_color="@color/border_color"
             app:civ_border_width="4dp"
             app:civ_shadow="true"
             app:civ_shadow_color="@color/shadow_color"
-            app:civ_shadow_radius="10"
-            tools:src="@drawable/ic_launcher_background" />
+            app:civ_shadow_radius="10" />
 
 
         <TextView
@@ -35,21 +34,21 @@
             android:layout_marginTop="@dimen/height_60dp"
             android:ellipsize="end"
             android:maxLines="1"
+            android:text="@string/title"
             android:textColor="@color/text_color"
-            android:textSize="@dimen/text_25sp"
-            tools:text="@string/title" />
+            android:textSize="@dimen/text_25sp" />
 
         <TextView
             android:id="@+id/shirt_price"
             style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/width_340dp"
-            android:layout_marginLeft="@dimen/width_340dp"
-            android:layout_marginTop="@dimen/height_100dp"
+            android:layout_marginStart="@dimen/height_620dp"
+            android:layout_marginLeft="@dimen/height_620dp"
+            android:layout_marginTop="@dimen/height_120dp"
+            android:text="@string/price"
             android:textColor="@color/text_color"
-            android:textSize="@dimen/text_20sp"
-            tools:text="@string/price" />
+            android:textSize="@dimen/text_20sp" />
 
 
     </androidx.cardview.widget.CardView>

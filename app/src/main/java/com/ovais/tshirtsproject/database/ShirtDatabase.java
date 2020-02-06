@@ -15,17 +15,18 @@ public abstract class ShirtDatabase extends RoomDatabase {
 
 
     public abstract ShirtDao shirtDao();
+
     private static volatile ShirtDatabase INSTANCE;
 
     //creating an instance
     //best practice is to make it singleton
     public static ShirtDatabase getDatabase(Context context) {
-        if(INSTANCE == null) {
+        if (INSTANCE == null) {
             synchronized (ShirtDatabase.class) {
-                if(INSTANCE == null) {
+                if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext()
-                            ,ShirtDatabase.class
-                            ,DATABASE_NAME)
+                            , ShirtDatabase.class
+                            , DATABASE_NAME)
                             .allowMainThreadQueries()
                             .build();
                 }

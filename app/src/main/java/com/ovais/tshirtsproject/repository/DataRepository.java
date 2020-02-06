@@ -1,8 +1,6 @@
 package com.ovais.tshirtsproject.repository;
 
 import android.app.Application;
-import android.content.Context;
-import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
@@ -10,6 +8,7 @@ import com.ovais.tshirtsproject.database.ShirtDao;
 import com.ovais.tshirtsproject.database.ShirtDatabase;
 import com.ovais.tshirtsproject.model.Shirt;
 import com.ovais.tshirtsproject.network.RetrofitInstance;
+import com.ovais.tshirtsproject.utils.LogUtils;
 
 import java.util.List;
 
@@ -21,6 +20,8 @@ public class DataRepository {
 
     private ShirtDao shirtDao;
     private LiveData<List<Shirt>> shirts;
+    private LogUtils logs = new LogUtils();
+    //private Application application;
 
 
     //constructor
@@ -33,29 +34,37 @@ public class DataRepository {
     }
 
     //insert function which will insert shirt
-    public void insert(List<Shirt> shirts) {
+    private void insert(List<Shirt> shirts) {
         shirtDao.insertData(shirts);
     }
 
-    //returns shirts
     public LiveData<List<Shirt>> getAllShirts() {
+
+        if (getFromDatabase() == null) {
+
+            logs.onFailure("db---> null---starting web service");
+            getFromWebServices();
+        }
+
+
         return shirts;
+
+
     }
 
 
-
-    public LiveData<List<Shirt>> getFromDatabase() {
+    private LiveData<List<Shirt>> getFromDatabase() {
         return shirts;
     }
 
     //API-Call
-    public void getFromWebServices() {
+    private void getFromWebServices() {
 
         RetrofitInstance.getShirtsData().getData().enqueue(new Callback<List<Shirt>>() {
             @Override
             public void onResponse(Call<List<Shirt>> call, Response<List<Shirt>> response) {
 
-                //delete shirts
+
                 shirtDao.deleteShirts();
                 insert(response.body());
             }
@@ -63,7 +72,9 @@ public class DataRepository {
             @Override
             public void onFailure(Call<List<Shirt>> call, Throwable t) {
 
-                Log.e("Error Fetching Data", t.getMessage());
+
+                logs.onFailure("Call Failed");
+
             }
         });
 
