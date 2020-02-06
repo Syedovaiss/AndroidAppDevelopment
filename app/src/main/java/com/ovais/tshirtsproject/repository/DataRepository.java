@@ -21,7 +21,6 @@ public class DataRepository {
     private ShirtDao shirtDao;
     private LiveData<List<Shirt>> shirts;
     private LogUtils logs = new LogUtils();
-    //private Application application;
 
 
     //constructor
@@ -42,7 +41,7 @@ public class DataRepository {
 
         if (getFromDatabase() == null) {
 
-            logs.onFailure("db---> null---starting web service");
+            logs.onFailure("db:Null-Starting web service");
             getFromWebServices();
         }
 

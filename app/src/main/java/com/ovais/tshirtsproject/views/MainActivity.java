@@ -28,6 +28,12 @@ public class MainActivity extends AppCompatActivity {
 
         //finding recycler view by id
         recyclerView = findViewById(R.id.recyclerView);
+        initModel();
+
+    }
+
+    private void initModel(){
+
 
         MainActivityViewModel mainActivityViewModel;
 
@@ -49,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     //setting recycler view
     private void setUpRecyclerView(List<Shirt> shirts) {
         ShirtAdapter adapter = new ShirtAdapter(shirts);
