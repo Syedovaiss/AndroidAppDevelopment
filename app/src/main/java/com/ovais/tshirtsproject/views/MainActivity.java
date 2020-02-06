@@ -6,8 +6,10 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import com.ovais.tshirtsproject.DetailsActivity;
 import com.ovais.tshirtsproject.R;
 import com.ovais.tshirtsproject.adapters.ShirtAdapter;
 import com.ovais.tshirtsproject.model.Shirt;
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void initModel(){
+    private void initModel() {
 
 
         MainActivityViewModel mainActivityViewModel;
@@ -55,12 +57,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     //setting recycler view
-    private void setUpRecyclerView(List<Shirt> shirts) {
+    private void setUpRecyclerView(final List<Shirt> shirts) {
         ShirtAdapter adapter = new ShirtAdapter(shirts);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
+
     }
+
+
 }
