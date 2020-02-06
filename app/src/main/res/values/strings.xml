@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TShirtsProject</string>
+    <string name="description">hddddddddddddddddddsldjbvvvvvvvvvvvddddddddddddddddddsldjbvvvvvvvvvvvddddddddddddddddddsldjbvvvvvvvvvvvddddddddddddddddddsldjbvvvvvvvvvvvkdffbdfsjgvblsvsdlvjsdddddddddddddddddddddddddddsldjbvvvvvvddddddddddddddddddsldjbvvvvvvvvvvvddddddddddddddddddsldjbvvvvvvvvvvvddddddddddddddddddsldjbvvvvvvvvvvvvvvvvvvvvvvv</string>
+    <string name="available_pieces">Available Pieces</string>
+    <string name="price">Price</string>
+    <string name="title">Title</string>
+    <string name="currency"> PKR</string>
+    <string name="available">Available:</string>
+    <string name="Currency">Rs</string>
+</resources>
