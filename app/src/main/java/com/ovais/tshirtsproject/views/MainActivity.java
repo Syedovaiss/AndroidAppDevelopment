@@ -19,6 +19,7 @@ import com.ovais.tshirtsproject.viewmodel.MainActivityViewModel;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    //To-Do---> Swipe Refresh Layout
 
     private RecyclerView recyclerView;
     private ToastUtil toastUtil = new ToastUtil();
