@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.ovais.tshirtsproject.model.Shirt;
 import com.ovais.tshirtsproject.repository.DataRepository;
@@ -12,14 +13,16 @@ import com.ovais.tshirtsproject.repository.DataRepository;
 import java.util.List;
 
 //extends view model
-public class MainActivityViewModel extends AndroidViewModel {
+public class MainActivityViewModel extends AndroidViewModel implements SwipeRefreshLayout.OnRefreshListener {
 
     private LiveData<List<Shirt>> shirtsList;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private DataRepository myRepo;
 
     //constructor
     public MainActivityViewModel(@NonNull Application application) {
         super(application);
-        DataRepository myRepo;
+
         //data repo obj
         myRepo = new DataRepository(application);
 
@@ -33,4 +36,20 @@ public class MainActivityViewModel extends AndroidViewModel {
 
     }
 
+    public void setRefresh() {
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                myRepo.getAllShirts();
+            }
+        });
+
+    }
+
+    @Override
+    public void onRefresh() {
+
+    }
 }

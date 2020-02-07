@@ -1,17 +1,20 @@
 package com.ovais.tshirtsproject.views;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingComponent;
+import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import com.ovais.tshirtsproject.DetailsActivity;
 import com.ovais.tshirtsproject.R;
 import com.ovais.tshirtsproject.adapters.ShirtAdapter;
+import com.ovais.tshirtsproject.databinding.ActivityMainBinding;
+import com.ovais.tshirtsproject.databinding.ActivityMainBindingImpl;
 import com.ovais.tshirtsproject.model.Shirt;
 import com.ovais.tshirtsproject.utils.ToastUtil;
 import com.ovais.tshirtsproject.viewmodel.MainActivityViewModel;
@@ -23,14 +26,18 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ToastUtil toastUtil = new ToastUtil();
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding.setLifecycleOwner(this);
 
         //finding recycler view by id
         recyclerView = findViewById(R.id.recyclerView);
+        //view Model Function
         initModel();
 
     }
@@ -38,15 +45,29 @@ public class MainActivity extends AppCompatActivity {
     private void initModel() {
 
 
-        MainActivityViewModel mainActivityViewModel;
+        final MainActivityViewModel mainActivityViewModel;
 
         //view model provider which need lifecycle owner and class
         mainActivityViewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
+        binding.setViewModel(mainActivityViewModel);
+
 
         //Observer observes data and perform actions
         mainActivityViewModel.getAllShirts().observe(this, new Observer<List<Shirt>>() {
             @Override
-            public void onChanged(List<Shirt> shirts) {
+            public void onChanged(final List<Shirt> shirts) {
+                swipeRefreshLayout = findViewById(R.id.swipeToRefresh);
+
+                swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+
+                        //set up recycler view on refresh
+                        setUpRecyclerView(shirts);
+                        //stopping the refreshing icon
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                });
 
                 //when changed it will set it to recycler view
                 setUpRecyclerView(shirts);
@@ -64,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         ShirtAdapter adapter = new ShirtAdapter(shirts);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+        adapter.notifyDataSetChanged();
         recyclerView.setAdapter(adapter);
 
 

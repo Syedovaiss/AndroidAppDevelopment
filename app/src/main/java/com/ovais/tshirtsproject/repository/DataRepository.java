@@ -39,7 +39,7 @@ public class DataRepository {
 
     public LiveData<List<Shirt>> getAllShirts() {
 
-        if (getFromDatabase() == null) {
+        if (getFromDatabase() != null) {
 
             logs.onFailure("db:Null-Starting web service");
             getFromWebServices();
@@ -62,7 +62,6 @@ public class DataRepository {
         RetrofitInstance.getShirtsData().getData().enqueue(new Callback<List<Shirt>>() {
             @Override
             public void onResponse(Call<List<Shirt>> call, Response<List<Shirt>> response) {
-
 
                 shirtDao.deleteShirts();
                 insert(response.body());
